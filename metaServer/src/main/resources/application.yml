@@ -1,0 +1,19 @@
+server:
+  port: 8000
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 20
+        queue-capacity: 1000
+logging:
+  file:
+    name: ${logging.file.path}/metaServer-${server.port}.log
+    path: log
+
+raft:
+  dataPath: raft/server1
+  serverIdStr: 127.0.0.1:8100
+  groupId: meta
+  initConfStr: 127.0.0.1:8100,127.0.0.1:8101,127.0.0.1:8102
